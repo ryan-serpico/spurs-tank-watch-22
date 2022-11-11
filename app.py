@@ -16,7 +16,7 @@ def get_standings():
     standings_df.drop(columns=['SRS', 'PS/G', 'PA/G', 'GB'], inplace=True)
 
     # Sort by W/L%
-    standings_df.sort_values(by=['W/L%'], ascending=True, inplace=True)
+    standings_df.sort_values(by=['W/L%'], ascending=False, inplace=True)
 
     # Split the 'Team' column by space and take the second to last element
     standings_df['Team'] = standings_df['Team'].str.split(' ').str[-1]
@@ -27,6 +27,46 @@ def get_standings():
     # Reset the index
     standings_df.reset_index(drop=True, inplace=True)
 
-    print(standings_df)
+    return standings_df
 
-get_standings()
+def adjust_picks_for_trades():
+    traded_pick_dict = {
+        'Lakers': 'Lakers 👉 Pelicans',
+        'Timberwolves': 'Timberwolves 👉 Jazz',
+    }
+
+def determine_draft_order():
+    base_odds = [14.0, 14.0, 14.0, 12.5, 10.5, 9.0, 7.5, 4.5, 4.5, 4.5, 1.8, 1.7, 1.0, 0.5]
+
+    # Reverse the list
+    base_odds.reverse()
+    
+    # Get the standings
+    standings = get_standings()
+    
+    # Get the top 15 teams
+    top_15 = standings.head(16)
+    
+    # Get the bottom 15 teams
+    lottery_teams = standings.tail(14)
+
+    # Add the base odds to lottery_teams
+    lottery_teams['No. 1 odds'] = base_odds
+
+    # Add none to the top 16 teams
+    top_15['No. 1 odds'] = None
+
+    # Concatenate the top 14 and bottom 14 teams
+    draft_order = pd.concat([top_15, lottery_teams])
+    
+    # Reset the index
+    draft_order.reset_index(drop=True, inplace=True)
+
+    
+    # return draft_order
+    draft_order.sort_values(by=['W/L%'], ascending=True, inplace=True)
+
+    print(draft_order)
+
+
+determine_draft_order()
