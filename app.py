@@ -33,6 +33,12 @@ def adjust_picks_for_trades():
     traded_pick_dict = {
         'Lakers': 'Lakers 👉 Pelicans',
         'Timberwolves': 'Timberwolves 👉 Jazz',
+        'Bulls': 'Bulls 👉 Magic',
+        'Pelicans': 'Pelicans 👉 Lakers',
+        'Wizards': 'Wizards 👉 Knicks',
+        'Mavericks': 'Mavericks 👉 Knicks',
+        'Cavaliers': 'Cavaliers 👉 Pacers',
+        
     }
 
 def determine_draft_order():
