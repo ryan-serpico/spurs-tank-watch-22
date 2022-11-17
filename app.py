@@ -1,78 +1,94 @@
 import pandas as pd
+import requests
+from bs4 import BeautifulSoup
 
 
-def get_standings():
+def getSoup():
+    """
+    In this function we're isolating the table we want to scrape and removing extraneous HTML elements.
+    """
 
-    url = 'https://www.basketball-reference.com/leagues/NBA_2023.html'
-    east_standings_df = pd.read_html(url)[0]
-    west_standings_df = pd.read_html(url)[1]
-    
-    east_standings_df.rename(columns={'Eastern Conference': 'Team'}, inplace=True)
-    west_standings_df.rename(columns={'Western Conference': 'Team'}, inplace=True)
-    
-    standings_df = pd.concat([east_standings_df, west_standings_df])
+    url = 'https://www.tankathon.com/'
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
 
-    # Drop the following columns: 'Srs' 'PS/G' 'PA/G'
-    standings_df.drop(columns=['SRS', 'PS/G', 'PA/G', 'GB'], inplace=True)
+    standings_table = soup.find('table', {'class': 'draft-board'})
 
-    # Sort by W/L%
-    standings_df.sort_values(by=['W/L%'], ascending=False, inplace=True)
+    # Remove td elements with class 'mobile'
+    for td in standings_table.find_all('td', {'class': 'mobile'}):
+        td.decompose()
 
-    # Split the 'Team' column by space and take the second to last element
-    standings_df['Team'] = standings_df['Team'].str.split(' ').str[-1]
+    for div in standings_table.find_all('div', {'class': 'mobile'}):
+        div.decompose()
 
-    # Remove everything within parentheses in the 'Team' column
-    standings_df['Team'] = standings_df['Team'].str.replace(r'\(.*\)', '').str.strip()
 
-    # Reset the index
-    standings_df.reset_index(drop=True, inplace=True)
+    return standings_table
 
-    return standings_df
-
-def adjust_picks_for_trades():
-    traded_pick_dict = {
-        'Lakers': 'Lakers 👉 Pelicans',
-        'Timberwolves': 'Timberwolves 👉 Jazz',
-        'Bulls': 'Bulls 👉 Magic',
-        'Pelicans': 'Pelicans 👉 Lakers',
-        'Wizards': 'Wizards 👉 Knicks',
-        'Mavericks': 'Mavericks 👉 Knicks',
-        'Cavaliers': 'Cavaliers 👉 Pacers',
-        
+def clean_standings(standings_table):
+    nba_city_abbrev = {
+        'ATL': 'Atlanta',
+        'BOS': 'Boston',
+        'BKN': 'Brooklyn',
+        'CHA': 'Charlotte',
+        'CHI': 'Chicago',
+        'CLE': 'Cleveland',
+        'DAL': 'Dallas',
+        'DEN': 'Denver',
+        'DET': 'Detroit',
+        'GSW': 'Golden State',
+        'HOU': 'Houston',
+        'IND': 'Indiana',
+        'LAC': 'LA Clippers',
+        'LAL': 'LA Lakers',
+        'MEM': 'Memphis',
+        'MIA': 'Miami',
+        'MIL': 'Milwaukee',
+        'MIN': 'Minnesota',
+        'NO': 'New Orleans',
+        'NY': 'New York',
+        'OKC': 'Oklahoma City',
+        'ORL': 'Orlando',
+        'PHI': 'Philadelphia',
+        'PHX': 'Phoenix',
+        'POR': 'Portland',
+        'SAC': 'Sacramento',
+        'SAS': 'San Antonio',
+        'TOR': 'Toronto',
+        'UTA': 'Utah',
+        'WAS': 'Washington'
     }
 
-def determine_draft_order():
-    base_odds = [14.0, 14.0, 14.0, 12.5, 10.5, 9.0, 7.5, 4.5, 4.5, 4.5, 1.8, 1.7, 1.0, 0.5]
+    df = standings_table
 
-    # Reverse the list
-    base_odds.reverse()
+    # Remove empty rows
+    df = df.dropna(how='all')
+
+    # Remove the last three columns
+    df = df.iloc[:, :-3]
+
+    #  If value in any of the last two columns is NaN, replace with None
+    df = df.where(pd.notnull(df), None)
+
+    df = df.rename(columns={0: 'Pick', 1: 'Team', 2: 'Record', 3: 'Win%', 4: 'GB', 5: 'Streak', 6: 'L10', 7: 'Top 4', 8: '#1 Ovr'})
     
-    # Get the standings
-    standings = get_standings()
-    
-    # Get the top 15 teams
-    top_15 = standings.head(16)
-    
-    # Get the bottom 15 teams
-    lottery_teams = standings.tail(14)
+    # Remove the first row
+    df = df.iloc[1:]
 
-    # Add the base odds to lottery_teams
-    lottery_teams['No. 1 odds'] = base_odds
+    # Split the string in each row of the 'Team' column by space. If the last element of the split string is in the nba_city_abbrev dictionary, replace the value in the 'Team' column with the value in the dictionary.
+    for index, row in df.iterrows():
+        team = row['Team'].split(' ')
+        if team[-1] in nba_city_abbrev:
+            df.loc[index, 'Team'] = nba_city_abbrev[team[-1]]
 
-    # Add none to the top 16 teams
-    top_15['No. 1 odds'] = None
+    print(df)
 
-    # Concatenate the top 14 and bottom 14 teams
-    draft_order = pd.concat([top_15, lottery_teams])
-    
-    # Reset the index
-    draft_order.reset_index(drop=True, inplace=True)
+def get_standings():
+    standings_table = getSoup()
 
-    
-    # return draft_order
-    draft_order.sort_values(by=['W/L%'], ascending=True, inplace=True)
+    # Use pandas to read the table stored in standings_table
+    df = pd.read_html(str(standings_table))[0]
 
-    print(draft_order)
+    # Clean the data
+    clean_standings(df)
 
-
-determine_draft_order()
+get_standings()
