@@ -1,0 +1,31 @@
+Pick,Team,Win %,GB,% Chance
+1,![Detroit](icons/detroit.png),.200,--,14.0%
+-,![Houston](icons/houston.png),.200,--,14.0%
+3,![New Orleans](icons/new_orleans.png),.231,1.0,14.0%
+4,![Charlotte](icons/charlotte.png),.250,0.5,12.5%
+5,![Orlando](icons/orlando.gif),.267,1.0,10.5%
+6,![Orlando](icons/orlando.gif),.400,3.0,6.8%
+-,![San Antonio](icons/san-antonio.gif),.400,3.0,6.8%
+-,![Brooklyn](icons/brooklyn.png),.400,3.0,6.7%
+-,![Golden State](icons/golden_state.png),.400,3.0,6.7%
+10,![Miami](icons/miami.png),.467,4.0,2.2%
+-,![Oklahoma City](icons/oklahoma_city.gif),.467,4.0,2.2%
+-,![Utah](icons/utah.png),.467,4.0,2.1%
+13,![Utah](icons/utah.png),.500,4.5,1.0%
+14,![LA Clippers](icons/los_angeles_clippers.png),.533,5.0,0.5%
+15,![New York](icons/new_york.gif),.533,5.0,
+-,![New York](icons/new_york.gif),.533,5.0,
+17,![Indiana](icons/indiana.gif),.538,5.0,
+-,![Sacramento](icons/sacramento.png),.538,5.0,
+19,![Toronto](icons/toronto.png),.562,5.5,
+20,![Indiana](icons/indiana.gif),.571,5.5,
+-,![New York](icons/new_york.gif),.571,5.5,
+22,![Memphis](icons/memphis.png),.600,6.0,
+-,![Atlanta](icons/atlanta.png),.600,6.0,
+-,![LA Lakers](icons/los_angeles_lakers.png),.600,6.0,
+25,![Utah](icons/utah.png),.625,6.5,
+26,![Charlotte](icons/charlotte.png),.643,6.5,
+-,![Phoenix](icons/phoenix.png),.643,6.5,
+28,![Chicago](icons/chicago.png),.714,7.5,
+29,![Houston](icons/houston.png),.786,8.5,
+30,![Indiana](icons/indiana.gif),.800,9.0,

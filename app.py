@@ -1,3 +1,6 @@
+import datetime
+import json
+
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
@@ -135,6 +138,7 @@ def addIcons(df):
             continue
 
 def get_standings():
+    print('👉 Getting standings...')
     standings_table = getSoup()
 
     # Use pandas to read the table stored in standings_table
@@ -144,6 +148,21 @@ def get_standings():
     df = clean_standings(df)
     addIcons(df)
 
-    print(df)
+    df.to_csv('output/standings.csv', index=False)
+
+def createMetadata():
+    print('👉 Creating metadata...')
+    # Save current date to variable in this format: Aug. 4, 2022
+    date = datetime.datetime.now().strftime("%b. %-d, %Y")
+    s = f'Data as of {date}'
+    data = {}
+    
+    # Create nested dictionary with metadata
+    data['annotate'] = {'notes': s}
+
+    json_data = json.dumps(data)
+    with open('output/metadata.json', 'w') as f:
+        f.write(json_data)
 
 get_standings()
+createMetadata()
