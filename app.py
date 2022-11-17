@@ -71,7 +71,7 @@ def clean_standings(standings_table):
     df = df.iloc[:, :-3]
 
     #  If value in any of the last two columns is NaN, replace with None
-    df = df.where(pd.notnull(df), None)
+    df = df.where(pd.notnull(df), 0)
 
     df = df.rename(columns={0: 'Pick', 1: 'Team', 2: 'Record', 3: 'Win %', 4: 'GB', 5: 'Streak', 6: 'L10', 7: 'Top 4', 8: '% Chance'})
     
@@ -154,7 +154,7 @@ def createMetadata():
     print('👉 Creating metadata...')
     # Save current date to variable in this format: Aug. 4, 2022
     date = datetime.datetime.now().strftime("%b. %-d, %Y")
-    s = f'Data as of {date}'
+    s = f'Data as of {date}. Teams may have more than one pick due to trades. Tied lottery teams split their odds evenly. For full list of rules that determine draft order, go to <a href="https://www.tankathon.com/">tankathon.com</a>.'
     data = {}
     
     # Create nested dictionary with metadata
