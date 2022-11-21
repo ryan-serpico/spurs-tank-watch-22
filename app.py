@@ -189,5 +189,5 @@ def createMetadata():
     with open('output/metadata.json', 'w') as f:
         f.write(json_data)
 
-# get_standings()
-# createMetadata()
+get_standings()
+createMetadata()
