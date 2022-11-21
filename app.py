@@ -153,6 +153,9 @@ def createWidget():
     # Remove the second and third columns
     df = df.drop(columns=['Pick','Win %', 'GB'])
 
+    # Rename "Team" to " "
+    df = df.rename(columns={'Team': ' '})
+
     # Add the icons
     addIcons(df)
 
@@ -187,6 +190,13 @@ def createMetadata():
 
     json_data = json.dumps(data)
     with open('output/metadata.json', 'w') as f:
+        f.write(json_data)
+
+    # Here we're creating simplified metadata for the widget
+    data = {}
+    data['annotate'] = {'notes': 'Data as of ' + date}
+    json_data = json.dumps(data)
+    with open('output/widget-metadata.json', 'w') as f:
         f.write(json_data)
 
 get_standings()
