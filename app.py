@@ -153,11 +153,12 @@ def createWidget():
     # Remove the second and third columns
     df = df.drop(columns=['Pick','Win %', 'GB'])
 
+    # Add the icons
+    addIcons(df)
+
     # Rename "Team" to " "
     df = df.rename(columns={'Team': ' '})
 
-    # Add the icons
-    addIcons(df)
 
     print(df)
 
