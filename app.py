@@ -137,6 +137,31 @@ def addIcons(df):
         except KeyError:
             continue
 
+def createWidget():
+    print('👉 Creating widget...')
+    standings_table = getSoup()
+
+    # Use pandas to read the table stored in standings_table
+    df = pd.read_html(str(standings_table))[0]
+
+    # Clean the data
+    df = clean_standings(df)
+
+    # Filter the 'Team' column to only include "San Antonio"
+    df = df[df['Team'] == 'San Antonio']
+
+    # Remove the second and third columns
+    df = df.drop(columns=['Pick','Win %', 'GB'])
+
+    # Add the icons
+    addIcons(df)
+
+    print(df)
+
+    df.to_csv('output/widget-data.csv', index=False)
+
+createWidget()
+
 def get_standings():
     print('👉 Getting standings...')
     standings_table = getSoup()
@@ -164,5 +189,5 @@ def createMetadata():
     with open('output/metadata.json', 'w') as f:
         f.write(json_data)
 
-get_standings()
-createMetadata()
+# get_standings()
+# createMetadata()
