@@ -166,6 +166,38 @@ def createWidget():
 
 createWidget()
 
+def createHoustonWidget():
+    print('👉 Creating widget...')
+    standings_table = getSoup()
+
+    # Use pandas to read the table stored in standings_table
+    df = pd.read_html(str(standings_table))[0]
+
+    # Clean the data
+    df = clean_standings(df)
+
+    # Filter the 'Team' column to only include "San Antonio"
+    df = df[df['Team'] == 'Houston']
+
+    # Only include the first row
+    df = df.head(1)
+
+    # Remove the second and third columns
+    df = df.drop(columns=['Pick','Win %', 'GB'])
+
+    # Add the icons
+    addIcons(df)
+
+    # Rename "Team" to " "
+    df = df.rename(columns={'Team': ' '})
+
+
+    print(df)
+
+    df.to_csv('output/houston-widget-data.csv', index=False)
+
+createHoustonWidget()
+
 def get_standings():
     print('👉 Getting standings...')
     standings_table = getSoup()
