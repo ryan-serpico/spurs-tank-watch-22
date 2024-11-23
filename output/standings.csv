@@ -1,31 +1,31 @@
 Pick,Team,Win %,GB,% Chance
-1,![Philadelphia](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/philadelphia.png),.143,--,14.0%
-2,![Washington](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/washington.png),.154,0.5,14.0%
-3,![Utah](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/utah.png),.200,0.5,14.0%
-4,![New Orleans](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/new_orleans.png),.250,1.0,11.5%
--,![Toronto](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/toronto.png),.250,1.0,11.5%
-6,![Chicago](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/chicago.png),.375,3.0,9.0%
-7,![Indiana](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/indiana.gif),.400,3.5,5.3%
--,![Portland](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/portland.png),.400,3.5,5.3%
--,![Charlotte](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/charlotte.png),.400,3.5,5.2%
--,![Brooklyn](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/brooklyn.png),.400,3.5,5.2%
-11,![San Antonio](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/san-antonio.gif),.500,5.0,2.0%
-12,![Sacramento](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/sacramento.png),.533,5.5,1.0%
--,![Utah](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/utah.png),.533,5.5,1.0%
--,![Dallas](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/dallas.png),.533,5.5,1.0%
-15,![Brooklyn](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/brooklyn.png),.400,3.5,0
-16,![Minnesota](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/minnesota.png),.412,3.5,0
-17,Atlanta SA,.438,4.0,0
+1,![Washington](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/washington.png),.143,--,14.0%
+2,![Utah](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/utah.png),.200,0.5,14.0%
+-,![Philadelphia](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/philadelphia.png),.200,0.5,14.0%
+4,![New Orleans](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/new_orleans.png),.235,0.5,12.5%
+5,![Toronto](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/toronto.png),.250,1.0,10.5%
+6,![Indiana](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/indiana.gif),.375,3.0,7.5%
+-,![Portland](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/portland.png),.375,3.0,7.5%
+-,![Brooklyn](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/brooklyn.png),.375,3.0,7.5%
+9,![Charlotte](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/charlotte.png),.400,3.5,4.5%
+10,Atlanta SA,.412,3.5,3.0%
+11,![Sacramento](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/sacramento.png),.500,5.0,1.8%
+-,![San Antonio](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/san-antonio.gif),.500,5.0,1.7%
+13,![Utah](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/utah.png),.533,5.5,1.0%
+14,![Dallas](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/dallas.png),.562,6.0,0.5%
+15,![Minnesota](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/minnesota.png),.412,3.5,0
+-,Chicago SA,.412,3.5,0
+17,![Brooklyn](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/brooklyn.png),.438,4.0,0
 18,![Oklahoma City](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/oklahoma_city.gif),.462,4.5,0
 19,![Houston](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/houston.png),.562,6.0,0
 -,![Memphis](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/memphis.png),.562,6.0,0
--,![Oklahoma City](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/oklahoma_city.gif),.562,6.0,0
+21,![Orlando](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/orlando.gif),.571,6.0,0
 22,![Orlando](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/orlando.gif),.588,6.5,0
-23,![Brooklyn](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/brooklyn.png),.600,6.5,0
-24,![Orlando](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/orlando.gif),.615,6.5,0
+-,![Oklahoma City](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/oklahoma_city.gif),.588,6.5,0
+24,![Brooklyn](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/brooklyn.png),.600,6.5,0
 25,![Atlanta](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/atlanta.png),.667,7.5,0
-26,![Brooklyn](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/brooklyn.png),.688,8.0,0
+26,![Brooklyn](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/brooklyn.png),.706,8.5,0
 27,![LA Clippers](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/los_angeles_clippers.png),.750,9.0,0
-28,![Golden State](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/golden_state.png),.786,9.0,0
-29,![Boston](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/boston.png),.800,9.5,0
+28,![Golden State](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/golden_state.png),.800,9.5,0
+29,![Boston](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/boston.png),.812,10.0,0
 30,![Utah](https://github.com/ryan-serpico/spurs-tank-watch-22/raw/main/icons/utah.png),.941,12.5,0
